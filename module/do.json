@@ -1,0 +1,43 @@
+{
+    "schemaVersion": "1.0.0",
+    "class": "Device",
+    "async": true,
+    "label": "Onboard BIG-IP standalone Single-NIC",
+    "Common": {
+        "class": "Tenant",
+        "hostname" : "bigip.hashiconf.com",
+        "myDns": {
+            "class": "DNS",
+            "nameServers": [
+                "${dns_server}"
+            ],
+            "search": [
+                "f5.com"
+            ]
+        },
+        "myNtp": {
+            "class": "NTP",
+            "servers": [
+                "${ntp_server}"
+            ],
+            "timezone": "${timezone}"
+        },
+        "myProvisioning": {
+            "class": "Provision",
+            "ltm": "nominal",
+            "asm": "nominal",
+            "avr": "nominal"
+        },
+        "analytics": {
+            "class": "Analytics",
+            "debugEnabled": true,
+            "interval": 60,
+            "offboxProtocol": "tcp",
+            "offboxTcpAddresses": [
+                "127.0.0.1"
+            ],
+            "offboxTcpPort": 6514,
+            "offboxEnabled": true
+        }
+    }
+}
